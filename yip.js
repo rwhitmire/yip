@@ -13,9 +13,11 @@
 			};
 
 			events.push(event);
+
+			return this;
 		},
 
-		trigger: function(name) {
+		invoke: function(name) {
 			var args = Array.prototype.slice.call(arguments);
 			args.shift();
 
@@ -23,6 +25,8 @@
 				if(namesMatch(event.name, name))
 					event.action.apply(null, args);
 			});
+
+			return this;
 		},
 
 		clear: function(name) {
@@ -38,6 +42,8 @@
 			});
 
 			events = newEvents;
+
+			return this;
 		}
 	};
 }());

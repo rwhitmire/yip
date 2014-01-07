@@ -4,20 +4,20 @@ describe("yip", function() {
 		yip.clear();
 	});
 
-	describe("on/trigger", function() {
-	  	it("should trigger event", function() {
+	describe("on/invoke", function() {
+	  	it("should invoke event", function() {
 	  		var called = false;
 
 	  	  	yip.on('myEvent', function() {
 	  	  		called = true;
 	  	  	});
 
-	  	  	yip.trigger('myEvent');
+	  	  	yip.invoke('myEvent');
 
 	  	  	expect(called).toEqual(true);
 	  	});
 
-	  	it("should only trigger called event", function() {
+	  	it("should only invoke called event", function() {
 	  		var resultA = false;
 	  		var resultB = false;
 
@@ -29,7 +29,7 @@ describe("yip", function() {
 	  	  		resultB = true;
 	  	  	});
 
-	  	  	yip.trigger('eventA');
+	  	  	yip.invoke('eventA');
 
 	  	  	expect(resultA).toEqual(true);
 	  	  	expect(resultB).toEqual(false);
@@ -42,7 +42,7 @@ describe("yip", function() {
 	  	  		result = param;
 	  	  	});
 
-	  	  	yip.trigger('myEvent', 1);
+	  	  	yip.invoke('myEvent', 1);
 
 	  	  	expect(result).toEqual(1);
 	  	});
@@ -56,7 +56,7 @@ describe("yip", function() {
 	  	  		c = _c;
 	  	  	});
 
-	  	  	yip.trigger('myEvent', 1, 2, 3);
+	  	  	yip.invoke('myEvent', 1, 2, 3);
 
 	  	  	expect(a).toEqual(1);
 	  	  	expect(b).toEqual(2);
@@ -70,7 +70,7 @@ describe("yip", function() {
 	  	  		called = true;
 	  	  	});
 
-	  	  	yip.trigger('ns');
+	  	  	yip.invoke('ns');
 
 	  	  	expect(called).toEqual(true);
 	  	});
@@ -82,7 +82,7 @@ describe("yip", function() {
 	  	  		called = true;
 	  	  	});
 
-	  	  	yip.trigger('do');
+	  	  	yip.invoke('do');
 
 	  	  	expect(called).toEqual(false);
 	  	});
@@ -94,7 +94,7 @@ describe("yip", function() {
 	  	  		called = true;
 	  	  	});
 
-	  	  	yip.trigger('ns.something');
+	  	  	yip.invoke('ns.something');
 
 	  	  	expect(called).toEqual(true);
 	  	});
@@ -109,7 +109,7 @@ describe("yip", function() {
 	  	  	});
 
 	  	  	yip.clear();
-	  	  	yip.trigger('myEvent');
+	  	  	yip.invoke('myEvent');
 
 	  	  	expect(called).toEqual(false);
   	  	});
@@ -127,8 +127,8 @@ describe("yip", function() {
   	  		});
 
   	  		yip.clear('event1');
-  	  		yip.trigger('event1');
-  	  		yip.trigger('event2');
+  	  		yip.invoke('event1');
+  	  		yip.invoke('event2');
 
   	  		expect(event1result).toEqual(false);
   	  		expect(event2result).toEqual(true);
@@ -147,10 +147,30 @@ describe("yip", function() {
   	  		});
 
   	  		yip.clear('e');
-  	  		yip.trigger('e');
+  	  		yip.invoke('e');
 
   	  		expect(event1result).toEqual(false);
   	  		expect(event2result).toEqual(false);
   	  	});
   	});
+
+	describe("invoke", function() {
+	  	it("should be chainable", function() {
+  	  		var event1result = false;
+  	  		var event2result = false;
+
+  	  		yip.on('event1', function() {
+  				event1result = true;
+  	  		});
+
+  	  		yip.on('event2', function() {
+  				event2result = true;
+  	  		});
+
+  	  		yip.invoke('event1').invoke('event2');
+
+  	  		expect(event1result).toEqual(true);
+  	  		expect(event2result).toEqual(true);
+	  	});
+	});
 });
