@@ -1,8 +1,11 @@
 (function() {
 	var events = [];
 
-	window.yip = {
+	function namesMatch(n1, n2) {
+		return n1 == n2 || n1.indexOf(n2 + '.') == 0;
+	}
 
+	window.yip = {
 		on: function(name, action) {
 			var event = {
 				name: name,
@@ -17,7 +20,8 @@
 			args.shift();
 
 			events.forEach(function(event){
-				event.action.apply(null, args);
+				if(namesMatch(event.name, name))
+					event.action.apply(null, args);
 			});
 		},
 
@@ -30,7 +34,7 @@
 			var newEvents = [];
 
 			events.forEach(function(event){
-				if(event.name != name) newEvents.push(event);
+				if(!namesMatch(event.name, name)) newEvents.push(event);
 			});
 
 			events = newEvents;
