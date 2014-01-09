@@ -2,7 +2,7 @@
 	var events = [];
 
 	function namesMatch(n1, n2) {
-		return n1 == n2 || n1.indexOf(n2 + '.') == 0;
+		return n1 == n2 || n1.indexOf(n2 + '.') === 0;
 	}
 
 	window.yip = {

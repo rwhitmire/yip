@@ -1,0 +1,19 @@
+{
+  "name": "yip",
+  "version": "0.0.0",
+  "description": "yip.js - Domless Event Management\r ==================================================",
+  "main": "yip.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Whitmire",
+  "license": "BSD",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-jshint": "~0.8.0"
+  }
+}
