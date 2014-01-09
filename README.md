@@ -1,6 +1,8 @@
 yip.js - Domless Event Management
 ==================================================
 
+[![Build Status](https://travis-ci.org/rwhitmire/yip.png?branch=master)](https://travis-ci.org/rwhitmire/yip)
+
 API
 --------------------------------------
 
