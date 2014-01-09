@@ -14,14 +14,23 @@ module.exports = function(grunt) {
     }, 
     jshint: {
       all: ['src/*.js']
+    },
+    jasmine: {
+      pivotal: {
+        src: 'src/*.js',
+        options: {
+          specs: 'spec/*spec.js'
+        }
+      }
     }
   });
 
   // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Default task(s).
-  grunt.registerTask('default', ['jshint', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'jasmine', 'uglify']);
 
 };
