@@ -67,5 +67,5 @@ Continuous Testing
 This project uses the [Karma test runner](http://karma-runner.github.io/0.10/index.html).
 Karma allows us to easily run tests in any web browser and execute tests as files are updated.
 
-	npm install -g karma
-	karma start
+	$ npm install -g karma
+	$ karma start
