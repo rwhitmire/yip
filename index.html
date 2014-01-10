@@ -1,43 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Yip by rwhitmire</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Yip : Domless event management" />
 
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Yip</title>
   </head>
+
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/rwhitmire/yip">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/rwhitmire/yip/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/rwhitmire/yip/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
 
-    <div class="wrapper">
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/rwhitmire/yip">View on GitHub</a>
 
-      <section>
-        <div id="title">
-          <h1>Yip</h1>
-          <p>Domless event management</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/rwhitmire">rwhitmire</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
+          <h1 id="project_title">Yip</h1>
+          <h2 id="project_tagline">Domless event management</h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/rwhitmire/yip/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/rwhitmire/yip/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>
 <a name="yipjs---domless-event-management" class="anchor" href="#yipjs---domless-event-management"><span class="octicon octicon-link"></span></a>yip.js - Domless Event Management</h1>
 
@@ -58,43 +51,43 @@
 <h4>
 <a name="basic-example" class="anchor" href="#basic-example"><span class="octicon octicon-link"></span></a>basic example:</h4>
 
-<pre><code>yip.on('myEvent', function(){
-    console.log('myEvent called');      
-});
+<div class="highlight highlight-javascript"><pre><span class="nx">yip</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'myEvent'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'myEvent called'</span><span class="p">);</span>      
+<span class="p">});</span>
 
-yip.invoke('myEvent');
-</code></pre>
+<span class="nx">yip</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">'myEvent'</span><span class="p">);</span>
+</pre></div>
 
 <h4>
 <a name="with-parameters" class="anchor" href="#with-parameters"><span class="octicon octicon-link"></span></a>with parameters:</h4>
 
-<pre><code>yip.on('myEvent', function(param){
-    console.log(param);
-});
+<div class="highlight highlight-javascript"><pre><span class="nx">yip</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'myEvent'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">param</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">param</span><span class="p">);</span>
+<span class="p">});</span>
 
-yip.invoke('myEvent', 'foo');
-</code></pre>
+<span class="nx">yip</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">'myEvent'</span><span class="p">,</span> <span class="s1">'foo'</span><span class="p">);</span>
+</pre></div>
 
 <h4>
 <a name="namespacing" class="anchor" href="#namespacing"><span class="octicon octicon-link"></span></a>namespacing:</h4>
 
-<pre><code>yip.on('foo.bar', function(){
-    console.log('bar called');
-});
+<div class="highlight highlight-javascript"><pre><span class="nx">yip</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'foo.bar'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'bar called'</span><span class="p">);</span>
+<span class="p">});</span>
 
-yip.on('foo.rab', function(){
-    console.log('rab called');
-});
+<span class="nx">yip</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'foo.rab'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'rab called'</span><span class="p">);</span>
+<span class="p">});</span>
 
-yip.invoke('foo');
-</code></pre>
+<span class="nx">yip</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">);</span>
+</pre></div>
 
 <h4>
 <a name="clearing-events" class="anchor" href="#clearing-events"><span class="octicon octicon-link"></span></a>clearing events</h4>
 
-<pre><code>yip.clear() // clears all events
-yip.clear('foo') // clears all events named foo (or events in foo namespace)
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="nx">yip</span><span class="p">.</span><span class="nx">clear</span><span class="p">()</span> <span class="c1">// clears all events</span>
+<span class="nx">yip</span><span class="p">.</span><span class="nx">clear</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">)</span> <span class="c1">// clears all events named foo (or events in foo namespace)</span>
+</pre></div>
 
 <h2>
 <a name="building" class="anchor" href="#building"><span class="octicon octicon-link"></span></a>Building</h2>
@@ -112,13 +105,21 @@ $ grunt
 <p>This project uses the <a href="http://karma-runner.github.io/0.10/index.html">Karma test runner</a>.
 Karma allows us to easily run tests in any web browser and execute tests as files are updated.</p>
 
-<pre><code>npm install -g karma
-karma start
+<pre><code>$ npm install -g karma
+$ karma start
 </code></pre>
       </section>
-
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Yip maintained by <a href="https://github.com/rwhitmire">rwhitmire</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
+
   </body>
 </html>
