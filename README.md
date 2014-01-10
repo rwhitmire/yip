@@ -1,6 +1,7 @@
 yip.js - Domless Event Management
 ==================================================
 
+
 [![Build Status](https://travis-ci.org/rwhitmire/yip.png?branch=master)](https://travis-ci.org/rwhitmire/yip)
 
 API
@@ -16,7 +17,6 @@ Usage
 --------------------------------------
 	
 #### basic example:
-
 ```javascript
 yip.on('myEvent', function(){
 	console.log('myEvent called');		
@@ -26,7 +26,6 @@ yip.invoke('myEvent');
 ```
 
 #### with parameters:
-
 ```javascript
 yip.on('myEvent', function(param){
 	console.log(param);
@@ -36,7 +35,6 @@ yip.invoke('myEvent', 'foo');
 ```
 
 #### namespacing:
-
 ```javascript
 yip.on('foo.bar', function(){
 	console.log('bar called');
@@ -50,7 +48,6 @@ yip.invoke('foo');
 ```
 
 #### clearing events
-
 ```javascript
 yip.clear() // clears all events
 yip.clear('foo') // clears all events named foo (or events in foo namespace)
