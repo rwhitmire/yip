@@ -1,7 +1,7 @@
 {
   "name": "yip",
   "version": "0.0.0",
-  "description": "yip.js - Domless Event Management\r ==================================================",
+  "description": "Domless Event Management",
   "main": "yip.js",
   "directories": {
     "test": "test"

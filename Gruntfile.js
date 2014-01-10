@@ -5,7 +5,9 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '// yip.js - <%= pkg.description %> <%= grunt.template.today("m/d/yyyy") %> \n',
+        sourceMap: 'build/yip.min.map',
+        sourceMappingURL: 'yip.min.map'
       },
       build: {
         src: 'src/<%= pkg.name %>.js',
