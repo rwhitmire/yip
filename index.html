@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Yip by rwhitmire</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/rwhitmire/yip">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/rwhitmire/yip/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/rwhitmire/yip/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Yip</h1>
+          <p>Domless event management</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/rwhitmire">rwhitmire</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="yipjs---domless-event-management" class="anchor" href="#yipjs---domless-event-management"><span class="octicon octicon-link"></span></a>yip.js - Domless Event Management</h1>
+
+<p><a href="https://travis-ci.org/rwhitmire/yip"><img src="https://travis-ci.org/rwhitmire/yip.png?branch=master" alt="Build Status"></a></p>
+
+<h2>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h2>
+
+<p><code>on(name, function(params))</code>: set up event</p>
+
+<p><code>invoke(name, params)</code>: trigger event</p>
+
+<p><code>clear(name)</code>: clear event(s)</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h4>
+<a name="basic-example" class="anchor" href="#basic-example"><span class="octicon octicon-link"></span></a>basic example:</h4>
+
+<pre><code>yip.on('myEvent', function(){
+    console.log('myEvent called');      
+});
+
+yip.invoke('myEvent');
+</code></pre>
+
+<h4>
+<a name="with-parameters" class="anchor" href="#with-parameters"><span class="octicon octicon-link"></span></a>with parameters:</h4>
+
+<pre><code>yip.on('myEvent', function(param){
+    console.log(param);
+});
+
+yip.invoke('myEvent', 'foo');
+</code></pre>
+
+<h4>
+<a name="namespacing" class="anchor" href="#namespacing"><span class="octicon octicon-link"></span></a>namespacing:</h4>
+
+<pre><code>yip.on('foo.bar', function(){
+    console.log('bar called');
+});
+
+yip.on('foo.rab', function(){
+    console.log('rab called');
+});
+
+yip.invoke('foo');
+</code></pre>
+
+<h4>
+<a name="clearing-events" class="anchor" href="#clearing-events"><span class="octicon octicon-link"></span></a>clearing events</h4>
+
+<pre><code>yip.clear() // clears all events
+yip.clear('foo') // clears all events named foo (or events in foo namespace)
+</code></pre>
+
+<h2>
+<a name="building" class="anchor" href="#building"><span class="octicon octicon-link"></span></a>Building</h2>
+
+<p>Running the following commands will build, execute tests, and deploy
+to a /build directory within the project root:</p>
+
+<pre><code>$ npm install
+$ grunt
+</code></pre>
+
+<h2>
+<a name="continuous-testing" class="anchor" href="#continuous-testing"><span class="octicon octicon-link"></span></a>Continuous Testing</h2>
+
+<p>This project uses the <a href="http://karma-runner.github.io/0.10/index.html">Karma test runner</a>.
+Karma allows us to easily run tests in any web browser and execute tests as files are updated.</p>
+
+<pre><code>npm install -g karma
+karma start
+</code></pre>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
