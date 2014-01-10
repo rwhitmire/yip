@@ -46,3 +46,21 @@ Usage
 #### clearing events
 	yip.clear() // clears all events
 	yip.clear('foo') // clears all events named foo (or events in foo namespace)
+
+
+Building
+--------------------------------------
+Running the following commands will build, execute tests, and deploy
+to a /build directory within the project root:
+
+	$ npm install
+	$ grunt
+
+
+Continuous Testing
+--------------------------------------
+This project uses the [Karma test runner](http://karma-runner.github.io/0.10/index.html).
+Karma allows us to easily run tests in any web browser and execute tests as files are updated.
+
+	npm install -g karma
+	karma start
