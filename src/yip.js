@@ -21,10 +21,12 @@
 			var args = Array.prototype.slice.call(arguments);
 			args.shift();
 
-			events.forEach(function(event){
+			for(var i = 0; i < events.length; i++){
+				var event = events[i];
+
 				if(namesMatch(event.name, name))
 					event.action.apply(null, args);
-			});
+			}
 
 			return this;
 		},
@@ -37,9 +39,11 @@
 
 			var newEvents = [];
 
-			events.forEach(function(event){
+			for(var i = 0; i < events.length; i++){
+				var event = events[i];
+
 				if(!namesMatch(event.name, name)) newEvents.push(event);
-			});
+			}
 
 			events = newEvents;
 
